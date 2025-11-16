@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    console.log("1. Сума чисел у діапазоні");
+    let start = 1, end = 5;
+    let sum = 0;
+    for (let i = start; i <= end; i++) sum += i;
+    console.log(`Сума від ${start} до ${end}: ${sum}`);
+
+
+    console.log("2. Найбільший спільний дільник");
+    let a = 24, b = 36;
+    let x = a, y = b;
+    while (y !== 0) {
+      let temp = x % y;
+      x = y;
+      y = temp;
+    }
+    console.log(`НСД для ${a} і ${b}: ${x}`);
+
+
+    console.log("3. Усі дільники числа");
+    let num = 12;
+    let divisors = [];
+    for (let i = 1; i <= num; i++) 
+    {
+      if (num % i === 0) divisors.push(i);
+    }
+    console.log(`Дільники числа ${num}: ${divisors.join(", ")}`);
+
+
+    console.log("4. Кількість цифр у числі");
+    let n = 123456;
+    let count = 0;
+    let temp = n;
+    while (temp > 0) {
+      temp = Math.floor(temp / 10);
+      count++;
+    }
+    console.log(`Кількість цифр у числі ${n}: ${count}`);
+
+
+    console.log("5. Статистика 10 чисел");
+    let numbers = [1, -3, 0, 7, 8, -2, 0, 4, -9, 10];
+    let pos = 0, neg = 0, zero = 0, even = 0, odd = 0;
+    for (let i = 0; i < numbers.length; i++) 
+    {
+      let num = numbers[i];
+      if (num > 0) pos++;
+      else if (num < 0) neg++;
+      else zero++;
+      if (num % 2 === 0) even++; 
+      else odd++;
+    }
+    console.log(`Додатні: ${pos}, Від’ємні: ${neg}, Нулі: ${zero}, Парні: ${even}, Непарні: ${odd}`);
+
+
+    console.log("6. Калькулятор");
+    let examples = 
+    [
+      {a: 5, b: 3, sign: "+"},
+      {a: 8, b: 2, sign: "*"},
+      {a: 10, b: 5, sign: "/"}
+    ];
+    for (let i = 0; i < examples.length; i++) 
+    {
+      let {a, b, sign} = examples[i];
+      let result;
+      switch (sign) {
+        case "+": result = a + b; break;
+        case "-": result = a - b; break;
+        case "*": result = a * b; break;
+        case "/": result = a / b; break;
+        default: result = "Невідома операція";
+      }
+      console.log(`${a} ${sign} ${b} = ${result}`);
+    }
+
+
+    console.log("7. Зміщення цифр у числі");
+    let numberStr = "123456";
+    let shift = 2;
+    let result = numberStr.slice(shift) + numberStr.slice(0, shift);
+    console.log(`Було ${numberStr}, після зміщення на ${shift}: ${result}`);
+
+
+    console.log("8. Дні тижня");
+    let days = ["Понеділок", "Вівторок", "Середа", "Четвер", "П’ятниця", "Субота", "Неділя"];
+    let i = 0, rounds = 3;
+    do 
+    {
+      console.log(days[i]);
+      i = (i + 1) % days.length;
+      rounds--;
+    } while (rounds > 0);
+
+
+    console.log("9. Таблиця множення");
+    for (let i = 2; i <= 9; i++) 
+    {
+      console.log(`Таблиця для ${i}`);
+      for (let j = 1; j <= 10; j++) 
+      {
+        console.log(`${i} * ${j} = ${i * j}`);
+      }
+    }
+
+
+    console.log("10. Гра 'Вгадай число'");
+    let min = 0, max = 100;
+    let secret = 73; 
+    let guess;
+    while (true) 
+    {
+      guess = Math.floor((min + max) / 2);
+      console.log(`Моє припущення: ${guess}`);
+      if (guess === secret) 
+      {
+        console.log("Ура! Я вгадав!");
+        break;
+      } 
+      else if (guess < secret) 
+      {
+        min = guess + 1;
+      } 
+      else 
+      {
+        max = guess - 1;
+      }
+    }
+  </script>
+</body>
+</html>
